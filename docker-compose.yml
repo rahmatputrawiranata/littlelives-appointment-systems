@@ -1,0 +1,19 @@
+version: '3'
+name: 'littlelives-schedule-system'
+
+networks:
+  littlelives_schedule_system:
+    driver: bridge
+    
+volumes:
+  mongodb_data:
+
+services:
+  mongodb:
+    image: mongo
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - littlelives_schedule_system
+    ports:
+      - "27017:27017"
